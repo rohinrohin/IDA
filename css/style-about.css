@@ -1,0 +1,236 @@
+.scroll {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+/*
+html {
+  background: url(../assets/img/about-back.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+
+
+.team-title {
+
+    z-index: 1;
+    color: white;
+    font-family: inherit;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 5em;
+    display: block;
+}
+
+.about-info {
+  color: aliceblue;
+  font-size: 2em;
+  font-weight: 200;
+  opacity: .6;
+}
+
+.about-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    text-align: center;
+}
+
+.scroll-item {
+    background-color: red;
+    transition: all 0.5s ease-in-out;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.about-flex {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+}
+
+.about-allwrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-item {
+
+}
+
+.p1 {
+  width: 50vh;
+
+}
+.header-about {
+    height: 15vh;
+    background-color: transparent;
+    color: white;
+    z-index: 5;
+    margin: 0;
+}
+
+.about-wrap {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 3em;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 30px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 30px;
+}
+
+.circular1 {
+    display: inline-block;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background: url(../assets/img/rohin.jpg) no-repeat;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    background-position: center;
+    transition: transform 0.8s;
+}
+
+.circular2 {
+    display: inline-block;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background: url(../assets/img/roady.jpg) no-repeat;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    background-position: center;
+    transition: transform 0.8s;
+}
+
+.circular3 {
+    display: inline-block;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background: url(../assets/img/sanjay.jpg) no-repeat;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    background-position: center;
+    transition: transform 0.8s;
+}
+
+.p1 {
+    opacity: 0;
+    color: white;
+    //text-shadow: 3px 5px 10px #000;
+    font-size: 1.5em;
+}
+
+.p2 {
+    opacity: 0;
+    color: white;
+    //text-shadow: 3px 5px 10px #000;
+    font-size: 1.5em;
+}
+
+.p3 {
+    opacity: 0;
+    color: white;
+    //text-shadow: 3px 5px 10px #000;
+    font-size: 1.5em;
+}
+
+.para {
+    font-size: 1em;
+    color: lightgrey;
+}
+
+.blur {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    transform: scale(0.8, 0.8);
+}
+
+.big {
+    transform: scale(1.2, 1.2);
+}
+
+.small {
+    transform: scale(0.8, 0.8);
+}
+
+
+.blur {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    transform: scale(0.8, 0.8);
+}
+.big {
+    transform: scale(1.2, 1.2);
+}
+.small {
+    transform: scale(0.8, 0.8);
+}
+
+.about-item {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+
+  margin-left: 100px;
+  margin-right:100px;
+  justify-content: center;
+  align-content: center;
+  align:center;
+  text-align: center;
+}
+
+.blur {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    transform: scale(0.8, 0.8);
+}
+.big {
+    transform: scale(1.2, 1.2);
+}
+.small {
+    transform: scale(0.8, 0.8);
+}
+
+
+.big {
+    transform: scale(1.2, 1.2);
+}
+
+.small {
+    transform: scale(0.8, 0.8);
+}
+
+span {
+  display: block;
+}

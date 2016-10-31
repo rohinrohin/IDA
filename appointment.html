@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+    <script>
+
+        var eval = false;
+
+        $( function() {
+            $("#datepicker").datepicker({
+                onSelect: function(dateText) {
+//                    alert("Selected date: " +  + "; input's current value: " + this.value);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/check',
+                            data: JSON.stringify ({date: dateText}),
+                            success: function(data) {
+                                eval = true;
+//                                alert('data: ' + data['data']);
+                                if (data['data'] == true)
+                                    $(".tick-avail").removeClass('hidden');
+                                else
+                                    $(".tick-notavail").removeClass('hidden');
+                            },
+                            contentType: "application/json",
+                            dataType: 'json'
+                        });
+
+
+                    $
+
+                }
+            });
+        });
+
+
+
+        function func(){
+				document.getElementById("b1").value = "Processing ... ";
+				setTimeout(function(){
+				    document.getElementById("b1").value = "\u2713";
+                    $( "#postform" ).submit();
+				},2000);
+
+
+
+			};
+
+
+
+    </script>
+
+
+    <style>
+
+        html {
+          background: url({{ url_for('static', filename='../assets/img/hospital.jpg') }}) no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+
+        h1 {
+            color: #2005CB;
+            text-align: center;
+            font-size: 4.5em;
+            text-transform: uppercase;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .fa {
+            text-align: center;
+        }
+
+
+        input[type="text"] {
+            text-align: center;
+            padding: 10px;
+            border: none;
+            border-bottom: solid 2px #c9c9c9;
+            transition: border 0.5s;
+        }
+        input[type="text"]:focus,
+        input[type="text"]:focus {
+             outline: none;
+            border-bottom: solid 2px #2b77c2;
+        }
+
+        .text {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .form-wrapper {
+            height:100vh;
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        #postform {
+            max-width: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            /*flex:1;*/
+        }
+
+        .tick-avail{
+            color: rgba(44, 80, 16, 0.99);
+            text-transform: uppercase;
+        }
+
+        .tick-notavail{
+            color: rgba(80, 10, 9, 0.99);
+            text-transform: uppercase;
+        }
+
+        .hidden{
+            display: none;
+        }
+
+
+         .progress-button {
+             margin-top: 20px;
+			position: relative;
+			display: block;
+			padding: 0 60px;
+			outline: none;
+			border: 2px solid;
+			border-radius: 250px;
+			background: #19df74;
+            color: #433131;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 1em;
+			line-height: 4;
+		}
+
+        .button span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+        }
+
+        .button span:after {
+          content: '»';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+        }
+
+        .button:hover span {
+          padding-right: 25px;
+        }
+
+        .button:hover span:after {
+          opacity: 1;
+          right: 0;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="form-wrapper">
+    <h1>Book an appointment</h1>
+    <form action="/doappoint" method="post" id="postform">
+        <input class="name text" placeholder="Name " type="text" name="name"/> <br>
+        <input class="text" placeholder="Email ID " type="text" name="email"/><br>
+        <input class="text" placeholder="Date " id="datepicker" type="text" name="date"/>
+        <i class="fa fa-check tick-avail hidden" aria-hidden="true">Available</i>
+        <i class="fa fa-times tick-notavail hidden" aria-hidden="true">Sorry, try another date. </i>
+        <input type = "button" class="progress-button button" id = "b1" onClick = "func()" value = "Submit"/>
+    </form>
+</div>
+
+
+
+</body>
+</html>
