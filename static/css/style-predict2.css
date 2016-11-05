@@ -498,7 +498,9 @@ ul, ol, ul li {
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 10px;
-    
+  transition: .25s ease-in;
+    align-items: center;
+
 }
 
 .newsletter p {
@@ -513,9 +515,23 @@ ul, ol, ul li {
   background-position: center;
   margin-top: 60px;
   margin-bottom: 30px;
-    
+
 }
 
+.newsletter .notify-img2 {
+  width: 100%;
+  height: 200px;
+  background: url(../assets/img/appointment.png) 0 0 no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  transition: 2s;
+}
+
+.newsletter-onsubmit{
+    height: 500px;
+}
 /*
 .newsletter .notify-img-overlay {
   position: absolute;
@@ -524,15 +540,15 @@ ul, ol, ul li {
   width: 100%;
   height: 200px;
   background: rgba(255, 255, 255, 0.3);
-   
+
 }
 */
 
 .newsletter .notify-text {
   padding-left: 60px;
   padding-right: 60px;
-  padding-bottom: 30px;
-    
+  padding-bottom: 60px;
+
 }
 
 .mfp-bg {
@@ -1200,22 +1216,22 @@ figure.hover-effect:hover:before {
 .radio-wrapper{
     display: flex;
     flex-direction: row;
-    
+
 }
 .radio1{
     display: flex;
     flex-direction: row;
-    
+
 }
 .radio2{
     display: flex;
     flex-direction: row;
-    
+
 }
 .radio-label{
     display: flex;
     flex-direction: row;
-    
+
 }
 
 body {
@@ -1238,7 +1254,7 @@ body {
   transition: all 0.2s ease;
   -webkit-border-radius: 25px;
   border-radius: 25px;
-  
+
 }
 .switch span {
   position: absolute;
@@ -1296,7 +1312,7 @@ label[for=yes1] {
   position: absolute;
   left: 0px;
   height: 20px;
-      
+
 }
 label[for=no1] {
   position: absolute;
@@ -1307,7 +1323,7 @@ label[for=yes2] {
   position: absolute;
   left: 0px;
   height: 20px;
-      
+
 }
 label[for=no2] {
   position: absolute;
@@ -1318,7 +1334,7 @@ label[for=yes3] {
   position: absolute;
   left: 0px;
   height: 20px;
-      
+
 }
 label[for=no3] {
   position: absolute;
@@ -1403,7 +1419,7 @@ label[for=no3] {
     height: 60px;
     display: flex;
     flex-direction: row;
-        
+
 }
 label{
     top:-5px;

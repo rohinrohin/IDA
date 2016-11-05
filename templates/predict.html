@@ -35,12 +35,16 @@
 		<link href="css/magnific-popup.css" rel="stylesheet">
 		<link href="css/nanoscroller.css" rel="stylesheet">
 		<link href="css/style-predict2.css" rel="stylesheet">
-
+		<link href="css/style-index.css" rel="stylesheet">
 
 		<script src="js/modernizr.js"></script>
 
 		<script src="js/custom-nav-predict.js"></script>
 
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
 
 	</head>
 
@@ -137,7 +141,7 @@
 
 
 			<div class="data">
-					<a href="#notify" class="notify-popup btnfos btnfos-5" >
+					<a href="#notify1" class="notify-popup btnfos btnfos-5" >
 					I HAVE DATA
 				</a>
 				<!-- End Title -->
@@ -145,7 +149,7 @@
 
 
 				<div class="appoint">
-				<a href="#notify" class="notify-popup btnfos btnfos-5" >
+				<a href="#notify2" class="notify-popup btnfos btnfos-5" >
 					BOOK APPOINTMENT
 				</a>
 
@@ -185,8 +189,8 @@
 	<!-- End Footer -->
 
 	<!-- Start Notify Popup -->
-	<div id="notify" class="newsletter mfp-hide">
-
+	<div id="notify1" class="newsletter mfp-hide">
+        <div id = "notify-wrapper">
 		<!-- Start Notify Popup Header Image -->
 		<div class="notify-img">
 		</div>
@@ -194,13 +198,13 @@
 
 		<div class="notify-text">
 
-			<h3>Enter Your Data</h3>
+			<h3>Enter Your Details</h3>
 
 			<!-- Start Notify Form -->
-			<form id="form-notify" class="feedback" action="http://requestb.in/13o7sif1">
+			<form id="form-notify1" class="feedback" action="a.php">
 				<div class="field-group">
 					<input id="name" class="field-name" type="text" name="name" placeholder="Enter your name">
-                    <input id="email" class="field-email" type="text" name="email" placeholder="Enter your email">
+                    <input id="email" class="field-email" type="email" name="email" placeholder="Enter your email">
 					<input id="age" class="field-age" type="text" name="age" placeholder="Enter your age">
 					<input id="sbp" class="field-sbp" type="text" name="sbp" placeholder="Systolic Blood Pressure">
                     <input id="bmi" class="field-bmi" type="text" name="bmi" placeholder="Body Mass Index(BMI)">
@@ -271,12 +275,57 @@
                     </div>
 
 				</div>
+<!--
 				<div class="form-error-message">
 					Enter a valid email
 				</div>
-				<button id="submit" type="submit" class="button-submit">Submit</button>
+-->
+				<button id="submit1" type="submit" class="button-submit">Submit</button>
+			</form>
+            </div>
+            </div>
+
+        <h2 id="completed" style="display:none;">Thank you for the submission, you will shortly recieve an email with your analysis. </h2>
+</div>
+			<!-- End Notify Form -->
+
+
+
+             <!-- Start Notify Popup2 -->
+	<div id="notify2" class="newsletter mfp-hide">
+
+		<!-- Start Notify Popup Header Image -->
+		<div class="notify-img2">
+		</div>
+		<!-- End Notify Popup Header Image -->
+
+		<div class="notify-text">
+
+			<h3>Enter Your Data</h3>
+
+			<!-- Start Notify Form -->
+			<form id="form-notify2" class="feedback" action="http://requestb.in/13o7sif1">
+				<div class="field-group">
+					<input id="name" class="field-name" type="text" name="name" placeholder="Enter your name">
+                    <input id="email" class="field-email" type="email" name="email" placeholder="Enter your email">
+                    <input id="date" class = "field-date" type="date" name = "date" placeholder="Enter appointment date">
+
+
+				</div>
+<!--
+				<div class="form-error-message">
+					Enter a valid email
+				</div>
+-->
+				<button id="submit2" type="submit" class="button-submit">Submit</button>
 			</form>
 			<!-- End Notify Form -->
+
+		</div> <!-- End .notify-text -->
+
+	</div> <!-- End .newsletter -->
+	<!-- End Notify Popup2 -->
+
 
 		</div> <!-- End .notify-text -->
 
@@ -345,6 +394,11 @@
 <script src="js/particles.min.js"></script>
 <script src="js/init-particles.js"></script>
 <script src="js/init.js"></script>
+
+<!--[if lte IE 9]>
+<script src="assets/js/placeholders.js"></script>
+<script src="assets/js/init-for-ie.js"></script>
+<![endif]-->
 
 
 </body>

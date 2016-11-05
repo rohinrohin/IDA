@@ -72,8 +72,8 @@ function validateEmail(email) {
 
 // Notify Form Validation
 function initMail() {
-  $("#form-notify").submit(function() { return false; });
-  $("#submit").on("click", function(){
+  $("#form-notify1").submit(function() { return false; });
+  $("#submit1").on("click", function(){
     var emailval   = $("#email").val();
     var emailvalid = validateEmail(emailval);
     if(emailvalid == false) {
@@ -83,15 +83,43 @@ function initMail() {
       $(".form-error-message").removeClass("error");
     }
     if(emailvalid == true) {
-      $("#submit").replaceWith("<em>send...</em>");
+      $("#submit").replaceWith("<em>Sending...</em>");
       $.ajax({
         type: 'POST',
-        url: '/predictrisk',
+        url: 'send.php',
         data: $("#form-notify").serialize(),
         success: function(data) {
           if(data == "true") {
             $("#form-notify").fadeOut("fast", function(){
               $(this).before("<span class='success'>Message sent</span>");
+            });
+          }
+        }
+      });
+    }
+  });
+    
+  $("#form-notify2").submit(function() { return false; });
+  $("#submit2").on("click", function(){
+    var emailval   = $("#email").val();
+    var emailvalid = validateEmail(emailval);
+    if(emailvalid == false) {
+      $(".form-error-message").addClass("error");
+    }
+    else if(emailvalid == true){
+      $(".form-error-message").removeClass("error");
+    }
+    if(emailvalid == true) {
+      $("#submit2").replaceWith("<em>Sending...</em>");
+      $.ajax({
+        type: 'POST',
+        url: 'send.php',
+        data: $("#form-notify2").serialize(),
+        success: function(data) {
+          if(data == "true") {
+              submitted();
+//            $("#form-notify").fadeOut("fast", function(){
+//              $(this).before("<span class='success'>Message sent</span>");
             });
           }
         }
@@ -150,4 +178,21 @@ function initScroll() {
   $('.nano').nanoScroller({
     preventPageScrolling: true
   });
+}
+
+function submitted(){
+//    var myNode = document.getElementById("notify1").className+= " newsletter-onsubmit";
+    document.querySelector(".newsletter").style.height="300px";     
+    document.querySelector(".newsletter").style.maxWidth="750px";
+    document.querySelector(".newsletter").style.backgroundColor="green";
+    document.querySelector(".newsletter").style.color="white";
+    document.querySelector(".newsletter").style.display="flex";
+//    document.querySelector(".newsletter").setAttribute("style", "align-items: center");
+
+//    while (myNode.firstChild) {
+//        myNode.removeChild(myNode.firstChild);
+//    }
+    document.querySelector("#notify-wrapper").style.display = "none";  
+    document.querySelector("#completed").style.display = "block";
+
 }

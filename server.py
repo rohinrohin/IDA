@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, url_for, json, send_from_directory
-from flask_mail import Mail, Message
 import mysql.connector
 import smtplib
 from math import *
