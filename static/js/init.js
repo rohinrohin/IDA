@@ -73,13 +73,13 @@ function validateEmail(email) {
 // Notify Form Validation
 function initMail() {
 
-    $('#form-notify').submit(function(){
+    $('#form-notify1').submit(function(){
 
-    $("#submit").replaceWith("<em>Sending...</em>");
+    $("#submit1").replaceWith("<em>Sending...</em>");
     $.ajax({
         url: '/predictrisk',
         type: 'POST',
-        data : $('#form-notify').serialize(),
+        data : $('#form-notify1').serialize(),
         success: function (data) {
         if (data == "true") {
             submitted();
@@ -89,21 +89,21 @@ function initMail() {
     return false;
     });
 
-//    $('#form-notify2').submit(function(){
-//
-//    $("#submit2").replaceWith("<em>Sending...</em>");
-//    $.ajax({
-//        url: '/predictrisk',
-//        type: 'POST',
-//        data : $('#form-notify2').serialize(),
-//        success: function (data) {
-//        if (data == "true") {
-//            submitted();
-//        }
-//    }
-//    });
-//    return false;
-//    });
+    $('#form-notify2').submit(function(){
+
+    $("#submit2").replaceWith("<em>Sending...</em>");
+    $.ajax({
+        url: '/predictrisk',
+        type: 'POST',
+        data : $('#form-notify2').serialize(),
+        success: function (data) {
+        if (data == "true") {
+            submitted();
+        }
+    }
+    });
+    return false;
+    });
 
 
 
@@ -217,10 +217,9 @@ function initScroll() {
     preventPageScrolling: true
   });
 }
-//
-//document.getElementById("form-notify").addEventListener("submit", submitted, false);
+
 function submitted(){
-//    var myNode = document.getElementById("notify").className+= " newsletter-onsubmit";
+//    var myNode = document.getElementById("notify1").className+= " newsletter-onsubmit";
     document.querySelector(".newsletter").style.height="300px";     
     document.querySelector(".newsletter").style.maxWidth="750px";
     document.querySelector(".newsletter").style.backgroundColor="green";
