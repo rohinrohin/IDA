@@ -14,6 +14,12 @@
 
                 var i = e.id;
                 var res =  i.split("#");
+
+
+                $.post("/checkin", {email: res[2]});
+
+
+
                 document.getElementById("p1").innerHTML = "Name: " + res[1];
                 document.getElementById("p2").innerHTML = "Email: " + res[2];
                 document.getElementById("p3").innerHTML = "Date: " + res[0];
@@ -22,13 +28,12 @@
                 document.getElementById("date").value = res[0];
 				document.getElementById(e.id).value = "Loading...";
 
-                $.post("/checkin", {email: res[2]});
 
 
 				setTimeout(function(){
 				document.getElementById(e.id).value = "      \u2713      ";
 				},1000);
-                return
+
 			};
 
 
