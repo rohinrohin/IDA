@@ -86,7 +86,7 @@ function initMail() {
       $("#submit").replaceWith("<em>send...</em>");
       $.ajax({
         type: 'POST',
-        url: 'send.php',
+        url: '/predictrisk',
         data: $("#form-notify").serialize(),
         success: function(data) {
           if(data == "true") {

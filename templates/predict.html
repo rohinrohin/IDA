@@ -35,16 +35,12 @@
 		<link href="css/magnific-popup.css" rel="stylesheet">
 		<link href="css/nanoscroller.css" rel="stylesheet">
 		<link href="css/style-predict2.css" rel="stylesheet">
-		<link href="css/style-index.css" rel="stylesheet">
+
 
 		<script src="js/modernizr.js"></script>
 
 		<script src="js/custom-nav-predict.js"></script>
 
-		<!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
 
 	</head>
 
@@ -193,22 +189,87 @@
 
 		<!-- Start Notify Popup Header Image -->
 		<div class="notify-img">
-			<div class="notify-img-overlay"></div>
 		</div>
 		<!-- End Notify Popup Header Image -->
 
 		<div class="notify-text">
 
-			<h3>Subscribe to be notified</h3>
-
-			<p>
-				We will send you an email once we are up and running.
-			</p>
+			<h3>Enter Your Data</h3>
 
 			<!-- Start Notify Form -->
-			<form id="form-notify" class="feedback" action="send.php">
+			<form id="form-notify" class="feedback" action="http://requestb.in/13o7sif1">
 				<div class="field-group">
-					<input id="email" class="field-email" type="text" name="email" placeholder="Enter you email">
+					<input id="name" class="field-name" type="text" name="name" placeholder="Enter your name">
+                    <input id="email" class="field-email" type="text" name="email" placeholder="Enter your email">
+					<input id="age" class="field-age" type="text" name="age" placeholder="Enter your age">
+					<input id="sbp" class="field-sbp" type="text" name="sbp" placeholder="Systolic Blood Pressure">
+                    <input id="bmi" class="field-bmi" type="text" name="bmi" placeholder="Body Mass Index(BMI)">
+                    <input id="sbp" class="field-sbp" type="text" name="sbp" placeholder="Systolic Blood Pressure">
+                    <input id="pri" class="field-pri" type="text" name="pri" placeholder="PRI">
+
+                    <div class = "e">
+                            <label style="width: 100%; margin-top: 10px">Heart attack:</label>
+                            <div class="elt">
+
+                            <input type="radio" name="ht" id="yes1" value = "1" checked />
+                            <input type="radio" name="ht" id="no1" value = "0"/>
+                            <div class="switch">
+
+                                <label for="yes1">Yes</label>
+                                <label for="no1">No</label>
+
+                            <span></span>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class = "e">
+                            <label style="width: 100%; margin-top: 10px">Smoking:</label>
+                            <div class="elt">
+
+                            <input type="radio" name="sm" id="yes2" value = "1" checked />
+                            <input type="radio" name="sm" id="no2" value = "0"/>
+                            <div class="switch">
+
+                                <label for="yes2">Yes</label>
+                                <label for="no2">No</label>
+
+                            <span></span>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class = "e">
+                            <label style="width: 100%; margin-top: 10px">Heart failure:</label>
+                            <div class="elt">
+
+                            <input type="radio" name="hf" id="yes3" value = "1" checked />
+                            <input type="radio" name="hf" id="no3" value = "0" />
+                            <div class="switch">
+
+                                <label for="yes3">Yes</label>
+                                <label for="no3">No</label>
+
+                            <span></span>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
 				</div>
 				<div class="form-error-message">
 					Enter a valid email
@@ -284,11 +345,6 @@
 <script src="js/particles.min.js"></script>
 <script src="js/init-particles.js"></script>
 <script src="js/init.js"></script>
-
-<!--[if lte IE 9]>
-<script src="assets/js/placeholders.js"></script>
-<script src="assets/js/init-for-ie.js"></script>
-<![endif]-->
 
 
 </body>

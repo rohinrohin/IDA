@@ -27,13 +27,13 @@
 
     <script src="js/custom.js"></script>
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style-predict.css?nocache" rel="stylesheet">
+    <link href="css/style-index.css?nocache" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald:300,400|Playfair+Display" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
 
-    <title>IDA - Predict</title>
+    <title>IDA - Intelligent Disease Awareness</title>
 
 </head>
 
@@ -42,10 +42,10 @@
         <div class="logo-full">
             <img src="assets/img/logo-full.png"></img>
         </div>
-        <a href="#">Home<span>Go back to home</span></a>
-        <a href="#">Predict<span>Predict your chances</span></a>
+        <a href="/">Home<span>Go back to home</span></a>
+        <a href="/predict">Predict<span>Predict your chances</span></a>
         <a href="#">Awareness<span>Learn more about Diseases</span></a>
-        <a href="../temp.html">The Team<span>The people who make it possible</span></a>
+        <a href="/about">The Team<span>The people who make it possible</span></a>
         <a href="#">Contact<span>Send us a message!</span></a>
     </div>
 
@@ -54,9 +54,11 @@
 
         <div class="video-wrap">
 
+            <video id="bgvid" class="bgvid" poster="assets/img/poster.jpg" playbackRate="0.5" autoplay loop>
+          <source src="assets/video/background-video.mp4" type="video/mp4">
+          <source src="assets/video/background-video.webm" type="video/webm">
+        </video>
         </div>
-
-
         <div class="contentwrap">
             <div class="header">
                 <div class="hamburger">
@@ -66,10 +68,11 @@
                 </div>
             </div>
             <div id="title-flex" class="title-flex">
-
+                <div class="title-logo"><img class="title-img" src="assets/img/logo.png"></img>
+                </div>
                 <div class="title-textwrap">
-                    <div class="title-text">Heart Diseae Risk Prediction</div>
-                    <div class="title-text2">If you have your cardiological data with you enter it below, or book an appointment with our specialist. </div>
+                    <div class="title-text">INTELLIGENT DISEASE AWARENESS</div>
+                    <div class="title-text2">organization that spreads awareness and predict diseases intelligently</div>
                 </div>
             </div>
         </div>
