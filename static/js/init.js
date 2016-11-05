@@ -73,13 +73,13 @@ function validateEmail(email) {
 // Notify Form Validation
 function initMail() {
 
-    $('#form-notify1').submit(function(){
+    $('#form-notify').submit(function(){
 
-    $("#submit1").replaceWith("<em>Sending...</em>");
+    $("#submit").replaceWith("<em>Sending...</em>");
     $.ajax({
         url: '/predictrisk',
         type: 'POST',
-        data : $('#form-notify1').serialize(),
+        data : $('#form-notify').serialize(),
         success: function (data) {
         if (data == "true") {
             submitted();
@@ -89,21 +89,21 @@ function initMail() {
     return false;
     });
 
-    $('#form-notify2').submit(function(){
-
-    $("#submit2").replaceWith("<em>Sending...</em>");
-    $.ajax({
-        url: '/predictrisk',
-        type: 'POST',
-        data : $('#form-notify2').serialize(),
-        success: function (data) {
-        if (data == "true") {
-            submitted();
-        }
-    }
-    });
-    return false;
-    });
+//    $('#form-notify2').submit(function(){
+//
+//    $("#submit2").replaceWith("<em>Sending...</em>");
+//    $.ajax({
+//        url: '/predictrisk',
+//        type: 'POST',
+//        data : $('#form-notify2').serialize(),
+//        success: function (data) {
+//        if (data == "true") {
+//            submitted();
+//        }
+//    }
+//    });
+//    return false;
+//    });
 
 
 

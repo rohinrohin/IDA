@@ -667,6 +667,8 @@ ul, ol, ul li {
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 10px;
+  transition: .25s ease-in;
+    align-items: center;
 
 }
 
@@ -686,8 +688,26 @@ ul, ol, ul li {
 }
 
 
+
+.newsletter-onsubmit{
+    height: 500px;
+}
+/*
+.newsletter .notify-img-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.3);
+
+}
+*/
+
 .newsletter .notify-text {
-   padding: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 60px;
 
 }
 

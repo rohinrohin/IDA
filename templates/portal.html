@@ -17,6 +17,9 @@
                 document.getElementById("p1").innerHTML = "Name: " + res[1];
                 document.getElementById("p2").innerHTML = "Email: " + res[2];
                 document.getElementById("p3").innerHTML = "Date: " + res[0];
+                document.getElementById("name").value = res[1];
+                document.getElementById("email").value = res[2];
+                document.getElementById("date").value = res[0];
 				document.getElementById(e.id).value = "Loading...";
 
                 $.post("/checkin", {email: res[2]});
@@ -25,7 +28,7 @@
 				setTimeout(function(){
 				document.getElementById(e.id).value = "      \u2713      ";
 				},1000);
-
+                return
 			};
 
 
@@ -99,7 +102,7 @@
 
 <!-- Start Notify Popup -->
 <div id="notify" class="newsletter mfp-hide">
-
+    <div id = "notify-wrapper">
     <!-- Start Notify Popup Header Image -->
     <div class="notify-img">
     </div>
@@ -110,13 +113,14 @@
         <h3>Enter Patient Data</h3>
 
         <!-- Start Notify Form -->
-        <form id="form-notify" class="feedback" action="/predictrisk">
+        <form id="form-notify" class="feedback" action="/predictrisk" method = "post">
             <div class="field-group">
                 <p align="left" id = "p1"></p>
                 <p align="left" id = "p3"></p>
                 <p align="left" id = "p2"></p>
 
-
+                <input id="name" class="field-name" type="text" name="name" placeholder="Enter your name" style="display:none;">
+                <input id="email" class="field-email" type="email" name="email" placeholder="Enter your email" style="display:none;">
                 <input id="age" class="field-age" type="text" name="age" placeholder="Age">
                 <input id="sbp" class="field-sbp" type="text" name="sbp" placeholder="Systolic Blood Pressure">
                 <input id="bmi" class="field-bmi" type="text" name="bmi" placeholder="Body Mass Index(BMI)">
@@ -127,8 +131,8 @@
                         <label style="width: 100%; margin-top: 10px">Heart attack:</label>
                         <div class="elt">
 
-                        <input type="radio" name="rdo1" id="yes1" checked />
-                        <input type="radio" name="rdo1" id="no1"/>
+                        <input type="radio" name="ht" id="yes1" checked  value = "1" checked />
+                        <input type="radio" name="ht" id="no1"  value = "0"/>
                         <div class="switch">
 
                             <label for="yes1">Yes</label>
@@ -148,8 +152,8 @@
                         <label style="width: 100%; margin-top: 10px">Smoking:</label>
                         <div class="elt">
 
-                        <input type="radio" name="rdo2" id="yes2" checked />
-                        <input type="radio" name="rdo2" id="no2"/>
+                        <input type="radio" name="sm" id="yes2"  value = "1" checked />
+                        <input type="radio" name="sm" id="no2"  value = "0"/>
                         <div class="switch">
 
                             <label for="yes2">Yes</label>
@@ -169,8 +173,8 @@
                         <label style="width: 100%; margin-top: 10px">Heart failure:</label>
                         <div class="elt">
 
-                        <input type="radio" name="rdo3" id="yes3" checked />
-                        <input type="radio" name="rdo3" id="no3"/>
+                        <input type="radio" name="hf" id="yes3"  value = "1" checked />
+                        <input type="radio" name="hf" id="no3"  value = "0"/>
                         <div class="switch">
 
                             <label for="yes3">Yes</label>
@@ -193,9 +197,9 @@
             <button id="submit" type="submit" class="button-submit" onclick="checked()">Submit</button>
         </form>
         <!-- End Notify Form -->
-
+    </div>
     </div> <!-- End .notify-text -->
-
+    <h2 id="completed" style="display:none;">Thank you for the submission, you will shortly recieve an email with your analysis. </h2>
 </div> <!-- End .newsletter -->
 <!-- End Notify Popup -->
 
