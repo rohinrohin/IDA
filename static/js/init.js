@@ -72,10 +72,45 @@ function validateEmail(email) {
 
 // Notify Form Validation
 function initMail() {
+
+    $('#form-notify1').submit(function(){
+
+    $("#submit1").replaceWith("<em>Sending...</em>");
+    $.ajax({
+        url: '/predictrisk',
+        type: 'POST',
+        data : $('#form-notify1').serialize(),
+        success: function (data) {
+        if (data == "true") {
+            submitted();
+        }
+    }
+    });
+    return false;
+    });
+
+    $('#form-notify2').submit(function(){
+
+    $("#submit2").replaceWith("<em>Sending...</em>");
+    $.ajax({
+        url: '/predictrisk',
+        type: 'POST',
+        data : $('#form-notify2').serialize(),
+        success: function (data) {
+        if (data == "true") {
+            submitted();
+        }
+    }
+    });
+    return false;
+    });
+
+
+
     // $("#form-notify1").submit(function () {
     //     return false;
     // });
-    //
+    // //
     // $("#submit1").on("click", function () {
     //     var emailval = $("#email").val();
     //     var emailvalid = validateEmail(emailval);
@@ -86,19 +121,20 @@ function initMail() {
     //         $(".form-error-message").removeClass("error");
     //     }
     //     if (emailvalid == true) {
+    //         alert("going to send");
     //         $("#submit1").replaceWith("<em>Sending...</em>");
-    //         // $.ajax({
-    //         //     type: 'POST',
-    //         //     url: '/predictrisk',
-    //         //     data: $("#form-notify1").serialize(),
-    //         //     success: function (data) {
-    //         //         if (data == "true") {
-    //         //             $("#form-notify1").fadeOut("fast", function () {
-    //         //                 $(this).before("<span class='success'>Message sent</span>");
-    //         //             });
-    //         //         }
-    //         //     }
-    //         // });
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: 'http://requestb.in/rktw6crk',
+    //             data: $("#form-notify1").serialize(),
+    //             success: function (data) {
+    //                 if (data == "true") {
+    //                     $("#form-notify1").fadeOut("fast", function () {
+    //                         $(this).before("<span class='success'>Message sent</span>");
+    //                     });
+    //                 }
+    //             }
+    //         });
     //     }
     // });
 
