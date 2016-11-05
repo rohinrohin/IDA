@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor's Portal</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>-->
+
+    <script>
+
+			function func(e){
+
+
+
+                var i = e.id;
+                var res =  i.split("#");
+                document.getElementById("p1").innerHTML = "Name: " + res[1];
+                document.getElementById("p2").innerHTML = "Email: " + res[2];
+                document.getElementById("p3").innerHTML = "Date: " + res[0];
+				document.getElementById(e.id).value = "Loading...";
+
+                $.post("/checkin", {email: res[2]});
+
+
+				setTimeout(function(){
+				document.getElementById(e.id).value = "      \u2713      ";
+				},1000);
+
+			};
+
+
+		</script>
+
+
+    <link href="css/style-portal.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+    <table class="table-fill" width="100%">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th colspan="2">Checked in</th>
+
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+
+        {% for w, x, y, z in cur %}
+            <tr >
+
+                <td class="text-left">{{ w }} </td>
+                <td class="text-left">{{ x }}</td>
+                <td class="text-left">{{ y }}</td>
+                <td class="text-left">{{ z }}</td>
+                {% if z == 0 %}
+                    <td class="text-left blue">
+
+                        <a href="#notify" class = "notify-popup"> <input type = "button" class="progress-button" data-style="fill" data-horizontal value = " Check in "  id = "{{ w }}#{{ x }}#{{ y }}" onClick = "func(this)" >
+
+                        </input></a>
+
+                    </td>
+                {% else %}
+                    <td class="text-left blue">
+
+
+                    </td>
+
+                {% endif %}
+            </tr>
+
+
+
+
+
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Start Notify Popup -->
+<div id="notify" class="newsletter mfp-hide">
+
+    <!-- Start Notify Popup Header Image -->
+    <div class="notify-img">
+    </div>
+    <!-- End Notify Popup Header Image -->
+
+    <div class="notify-text">
+
+        <h3>Enter Patient Data</h3>
+
+        <!-- Start Notify Form -->
+        <form id="form-notify" class="feedback" action="/predictrisk">
+            <div class="field-group">
+                <p align="left" id = "p1"></p>
+                <p align="left" id = "p3"></p>
+                <p align="left" id = "p2"></p>
+
+
+                <input id="age" class="field-age" type="text" name="age" placeholder="Age">
+                <input id="sbp" class="field-sbp" type="text" name="sbp" placeholder="Systolic Blood Pressure">
+                <input id="bmi" class="field-bmi" type="text" name="bmi" placeholder="Body Mass Index(BMI)">
+                <input id="sbp" class="field-sbp" type="text" name="sbp" placeholder="Systolic Blood Pressure">
+                <input id="pri" class="field-pri" type="text" name="pri" placeholder="PRI">
+
+                <div class = "e">
+                        <label style="width: 100%; margin-top: 10px">Heart attack:</label>
+                        <div class="elt">
+
+                        <input type="radio" name="rdo1" id="yes1" checked />
+                        <input type="radio" name="rdo1" id="no1"/>
+                        <div class="switch">
+
+                            <label for="yes1">Yes</label>
+                            <label for="no1">No</label>
+
+                        <span></span>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class = "e">
+                        <label style="width: 100%; margin-top: 10px">Smoking:</label>
+                        <div class="elt">
+
+                        <input type="radio" name="rdo2" id="yes2" checked />
+                        <input type="radio" name="rdo2" id="no2"/>
+                        <div class="switch">
+
+                            <label for="yes2">Yes</label>
+                            <label for="no2">No</label>
+
+                        <span></span>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class = "e">
+                        <label style="width: 100%; margin-top: 10px">Heart failure:</label>
+                        <div class="elt">
+
+                        <input type="radio" name="rdo3" id="yes3" checked />
+                        <input type="radio" name="rdo3" id="no3"/>
+                        <div class="switch">
+
+                            <label for="yes3">Yes</label>
+                            <label for="no3">No</label>
+
+                        <span></span>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="form-error-message">
+                Enter a valid email
+            </div>
+            <button id="submit" type="submit" class="button-submit" onclick="checked()">Submit</button>
+        </form>
+        <!-- End Notify Form -->
+
+    </div> <!-- End .notify-text -->
+
+</div> <!-- End .newsletter -->
+<!-- End Notify Popup -->
+
+
+
+<!-- Include JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/magnific-popup.min.js"></script>
+<script src="js/init.js"></script>
+
+
+
+</body>
+</html>

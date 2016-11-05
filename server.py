@@ -38,7 +38,7 @@ def about():
 
 @app.route("/predict")
 def predictloader():
-    return render_template('predict2.html')
+    return render_template('predict.html')
 
 @app.route("/portal")
 def portal():
