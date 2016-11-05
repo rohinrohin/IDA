@@ -219,7 +219,7 @@ def predict():
 
     send_email(email, name, ans)
 
-    return json.dumps({'success': True, 'data': 'temp', 'emailSent':'true'}), 200, {'ContentType': 'application/json'}
+    return "true"
 
 
 
