@@ -181,9 +181,10 @@ function initScroll() {
     preventPageScrolling: true
   });
 }
-
+//
+//document.getElementById("form-notify").addEventListener("submit", submitted, false);
 function submitted(){
-//    var myNode = document.getElementById("notify1").className+= " newsletter-onsubmit";
+//    var myNode = document.getElementById("notify").className+= " newsletter-onsubmit";
     document.querySelector(".newsletter").style.height="300px";     
     document.querySelector(".newsletter").style.maxWidth="750px";
     document.querySelector(".newsletter").style.backgroundColor="green";
