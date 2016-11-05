@@ -157,7 +157,7 @@ def appointment():
     cur.close()
     conn.close()
 
-    return json.dumps({'success': True, 'data': 'temp'}), 200, {'ContentType': 'application/json'}
+    return "true"
 
 
 
