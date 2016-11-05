@@ -199,11 +199,12 @@ def predict():
     # pri = 160
     # sm = 1
     # hf = 1
+    print("inside risk")
 
     name = request.form.get('name')
     email = request.form.get('email')
     age = int(request.form.get('age'))
-    sbp =  int(request.form.get('sbp'))
+    sbp = int(request.form.get('sbp'))
     ht =  int(request.form.get('ht'))
     bmi = int(request.form.get('bmi'))
     pri =  int(request.form.get('pri'))
