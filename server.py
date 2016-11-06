@@ -57,6 +57,9 @@ def portal():
 
     return render_template('portal.html', cur=cur)
 
+@app.route("/gallery")
+def gallery():
+    return render_template('gallery.html')
 
 
 
