@@ -96,9 +96,8 @@ def send_email(recipient,name,risk):
 ## USED TO CHECK IF APPOINTMENT ALREADY EXISTS
 @app.route("/check", methods=['POST'])
 def check():
-
-    data = request.get_json()# but data will be empty unless the request has the proper content-type header...
-
+    
+    data = request.form.get('date')  # but data will be empty unless the request has the proper content-type header...
     conn = mysql.connector.connect(
         user='root',
         password='',
@@ -106,13 +105,11 @@ def check():
         port=3306,
         database='wt')
 
-    data = data['date'].split('/')
-    newdate = data[2] + '-' + data[0] + '-' + data[1]
-    print("got request:", newdate)
+    print("got request:", data)
     cur = conn.cursor()
     # date in yyyy-mm-dd
     # query = ()
-    cur.execute("SELECT COUNT(*) FROM `webtech` WHERE date = %s", (newdate, ))
+    cur.execute("SELECT COUNT(*) FROM `webtech` WHERE date = %s", (data, ))
 
     val = False
 
@@ -123,7 +120,7 @@ def check():
 
     conn.close()
 
-    return json.dumps({'success': True, 'data': val}), 200, {'ContentType': 'application/json'}
+    return str(val)
 
 
 
