@@ -212,11 +212,6 @@ function initOverlay() {
 }
 
 // Scroll
-function initScroll() {
-  $('.nano').nanoScroller({
-    preventPageScrolling: true
-  });
-}
 
 function submitted(){
 //    var myNode = document.getElementById("notify1").className+= " newsletter-onsubmit";
