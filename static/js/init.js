@@ -1,3 +1,4 @@
+
 //jQuery code
 jQuery(function($) {
 
@@ -86,6 +87,7 @@ function initMail() {
         }
     }
     });
+
     return false;
     });
 
@@ -93,7 +95,7 @@ function initMail() {
 
     $("#submit2").replaceWith("<em>Sending...</em>");
     $.ajax({
-        url: '/predictrisk',
+        url: '/doappoint',
         type: 'POST',
         data : $('#form-notify2').serialize(),
         success: function (data) {
@@ -227,5 +229,7 @@ function submitted(){
 //    }
     document.querySelector("#notify-wrapper").style.display = "none";  
     document.querySelector("#completed").style.display = "block";
+
+    setInterval(function(){ window.location.reload(true); }, 2500);
 
 }
