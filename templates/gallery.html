@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" itemscope>
+
+<head>
+    <title>Gallery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+  setInterval(function () {
+        moveRight();
+    }, 3000);
+
+
+	var slideCount = $('#slider ul li').length;
+	var slideWidth = $('#slider ul li').width();
+	var slideHeight = $('#slider ul li').height();
+	var sliderUlWidth = slideCount * slideWidth;
+
+	$('#slider').css({ width: slideWidth, height: slideHeight });
+
+	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+
+    $('#slider ul li:last-child').prependTo('#slider ul');
+
+    function moveLeft() {
+        $('#slider ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#slider ul li:last-child').prependTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+});
+
+    </script>
+
+
+
+    <link href="css/style-gallery.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+
+</head>
+
+<body>
+
+     <div id="sideNav" class="sidenav">
+        <div class="logo-full">
+            <img src="assets/img/logo-full.png"></img>
+        </div>
+        <a href="/">Home<span>Go back to home</span></a>
+        <a href="/predict">Predict<span>Predict your chances</span></a>
+        <a href="/portal">Doctor's Portal<span>Enter Patient Data</span></a>
+        <a href="#">Awareness<span>Learn more about Diseases</span></a>
+        <a href="#">Gallery</a>
+        <a href="/about">The Team<span>The people who make it possible</span></a>
+        <!--<a href="#">Contact<span>Send us a message!</span></a>-->
+    </div>
+
+     <div class="background bg">
+
+    </div>
+
+<div id = "main">
+
+    <div class="contentwrap">
+        <div class="header">
+            <div class="hamburger">
+                <span onclick="toggleNav()">
+                  <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+              </span>
+            </div>
+        </div>
+    <div id="title-flex" class="title-flex">
+        <h1 style = "align-self: flex-start; margin-left: 20px; margin-top: 20px;">Gallery</h1>
+    <div id="slider">
+        <a href="#" class="control_next">>></a>
+        <a href="#" class="control_prev"><</a>
+     <ul>
+         <li><img src="assets/img/hospital1.jpg" class = "auto-resize"></img></li>
+         <li style="background: #aaa;"><img src="assets/img/hospital2.jpg"></img></li>
+         <li><img src="assets/img/hospital3.jpg"></img></li>
+         <li style="background: #aaa;"><img src="assets/img/hospital4.jpg"></img></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+<!-- Start Preloader -->
+	<div id="page-preloader">
+		<span class="spinner"><img src="assets/images/preloader.svg" width="50" alt="load..."></span>
+	</div>
+	<!-- End Preloader -->
+
+<script src="js/magnific-popup.min.js"></script>
+<script src="js/init.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>

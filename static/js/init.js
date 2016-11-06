@@ -1,4 +1,23 @@
-//jQuery code
+
+var datepicker = document.querySelector("#date").addEventListener('input', function (e) {
+    var dt = document.querySelector("#date").value;
+    alert(dt);
+        $.ajax({
+        url: '/check',
+        type: 'POST',
+        data : $('#form-notify2').serialize(),
+        success: function (data) {
+        if (data == "False") {
+            $(".form-error-message").addClass("error");
+        } else {
+             $(".form-error-message").removeClass("error");
+        }
+    }
+    });
+
+}, true);
+
+
 jQuery(function($) {
 
   "use strict";
@@ -15,6 +34,8 @@ jQuery(function($) {
   initScroll();
   // initOverlay();
   // initGallery();
+
+
 
   });
 
@@ -93,7 +114,7 @@ function initMail() {
 
     $("#submit2").replaceWith("<em>Sending...</em>");
     $.ajax({
-        url: '/predictrisk',
+        url: '/doappoint',
         type: 'POST',
         data : $('#form-notify2').serialize(),
         success: function (data) {

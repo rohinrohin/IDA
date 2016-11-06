@@ -42,6 +42,15 @@
 
     <link href="css/style-portal.css" rel="stylesheet">
     <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald:300,400|Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+
+
+
+
 
 </head>
 
@@ -49,59 +58,94 @@
 
 <body>
 
-    <table class="table-fill" width="100%">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th colspan="2">Checked in</th>
+    <div id="sideNav" class="sidenav">
+        <div class="logo-full">
+            <img src="assets/img/logo-full.png"></img>
+        </div>
+        <a href="/">Home<span>Go back to home</span></a>
+        <a href="/predict">Predict<span>Predict your chances</span></a>
+        <a href="#">Doctor's Portal<span>Enter Patient Data</span></a>
+        <a href="#">Awareness<span>Learn more about Diseases</span></a>
+        <a href="/gallery">Gallery</a>
+        <a href="/about">The Team<span>The people who make it possible</span></a>
+        <!--<a href="#">Contact<span>Send us a message!</span></a>-->
+    </div>
+    <div class="background bg">
 
-        </tr>
-      </thead>
-      <tbody class="table-hover">
-
-        {% for w, x, y, z in cur %}
-            <tr >
-
-                <td class="text-left">{{ w }} </td>
-                <td class="text-left">{{ x }}</td>
-                <td class="text-left">{{ y }}</td>
-                <td class="text-left">{{ z }}</td>
-                {% if z == 0 %}
-                    <td class="text-left blue">
-
-                        <a href="#notify" class = "notify-popup"> <input type = "button" class="progress-button" data-style="fill" data-horizontal value = " Check in "  id = "{{ w }}#{{ x }}#{{ y }}" onClick = "func(this)" >
-
-                        </input></a>
-
-                    </td>
-                {% else %}
-                    <td class="text-left blue">
-
-
-                    </td>
-
-                {% endif %}
-            </tr>
+    </div>
 
 
 
 
 
 
-    {% endfor %}
+<div id = "main">
 
-  </tbody>
-</table>
+    <div class="contentwrap">
+        <div class="header">
+            <div class="hamburger">
+                <span onclick="toggleNav()">
+                  <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+              </span>
+            </div>
+        </div>
+        <div id="title-flex" class="title-flex">
+            <h1 style = "align-items: flex-start; margin-left: 20px; margin-top: 20px;">Doctor's Portal</h1>
+            <div id = "table-div" style="transform:translateX(-200px);">
+            <table class="table-fill" width="100%">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th colspan="2">Checked in</th>
+
+                </tr>
+              </thead>
+              <tbody class="table-hover">
+
+                {% for w, x, y, z in cur %}
+                    <tr >
+
+                        <td class="text-left">{{ w }} </td>
+                        <td class="text-left">{{ x }}</td>
+                        <td class="text-left">{{ y }}</td>
+                        <td class="text-left">{{ z }}</td>
+                        {% if z == 0 %}
+                            <td class="text-left blue">
+
+                                <a href="#notify" class = "notify-popup"> <input type = "button" class="progress-button" data-style="fill" data-horizontal value = " Check in "  id = "{{ w }}#{{ x }}#{{ y }}" onClick = "func(this)" >
+
+                                </input></a>
+
+                            </td>
+                        {% else %}
+                            <td class="text-left blue">
+
+
+                            </td>
+
+                        {% endif %}
+                    </tr>
+
+
+
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
 
 
 
-
-
-
+	<!-- Start Preloader -->
+	<div id="page-preloader">
+		<span class="spinner"><img src="assets/images/preloader.svg" width="50" alt="load..."></span>
+	</div>
+	<!-- End Preloader -->
 
 
 
@@ -118,7 +162,7 @@
         <h3>Enter Patient Data</h3>
 
         <!-- Start Notify Form -->
-        <form id="form-notify" class="feedback" action="/predictrisk" method = "post">
+        <form id="form-notify1" class="feedback" action="/predictrisk" method = "post">
             <div class="field-group">
                 <p align="left" id = "p1"></p>
                 <p align="left" id = "p3"></p>
@@ -126,6 +170,7 @@
 
                 <input id="name" class="field-name" type="text" name="name" placeholder="Enter your name" style="display:none;">
                 <input id="email" class="field-email" type="email" name="email" placeholder="Enter your email" style="display:none;">
+                <input id="date" class="field-date" type="text" name="date" placeholder="Date" style="display:none;">
                 <input id="age" class="field-age" type="text" name="age" placeholder="Age">
                 <input id="sbp" class="field-sbp" type="text" name="sbp" placeholder="Systolic Blood Pressure">
                 <input id="bmi" class="field-bmi" type="text" name="bmi" placeholder="Body Mass Index(BMI)">
@@ -199,21 +244,22 @@
             <div class="form-error-message">
                 Enter a valid email
             </div>
-            <button id="submit" type="submit" class="button-submit" onclick="checked()">Submit</button>
+            <button id="submit1" type="submit" class="button-submit" onclick="checked()">Submit</button>
         </form>
         <!-- End Notify Form -->
     </div>
     </div> <!-- End .notify-text -->
-    <h2 id="completed" style="display:none;">Thank you for the submission, you will shortly recieve an email with your analysis. </h2>
+    <h2 id="completed" style="display:none;">Thank you. Your patient will shortly recieve an email with your analysis. </h2>
 </div> <!-- End .newsletter -->
 <!-- End Notify Popup -->
 
 
-
+</div>
 <!-- Include JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/init.js"></script>
+<script src="js/custom.js"></script>
 
 
 
