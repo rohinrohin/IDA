@@ -71,14 +71,14 @@ pwd = "sanjay12"
 
 def send_email(recipient,name,risk):
     subject = "Risk Analysis"
-    body = "Hi " + name + ",\n\n" + "We have received your details and here is our analysis. \n\nRisk % = " + str(risk) + "%"
+    body = "<h4 style=\"color:#4A235A;font-family: verdana;\">Hi " + name + ",\n\n" + "</h4><h4 style=\"font-family: verdana;\">Thanks for your interest in our prediction engine,<br> \n\n We have received your details and here is our analysis. <br>Risk Level = " + str(ceil(risk)) + "%<br> You can further visit rohin.me/webtech for more information on reducing your risk percentage.</h4><h4 style=\"color:#4A235A;font-family: verdana;\">Regrads, <br>IDA, Webtech Team</h4>"
     FROM = user
     TO = recipient if type(recipient) is list else [recipient]
     SUBJECT = subject
     TEXT = body
 
     # Prepare actual message
-    message = """From: %s\nTo: %s\nSubject: %s\n\n%s
+    message = """From: %s\nTo: %s\nMIME-Version: 1.0\nContent-type: text/html\nSubject: %s\n\n%s
     """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
 
     server = smtplib.SMTP("smtp.gmail.com", 587)
