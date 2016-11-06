@@ -1,22 +1,4 @@
 
-var datepicker = document.querySelector("#date").addEventListener('input', function (e) {
-    var dt = document.querySelector("#date").value;
-    alert(dt);
-        $.ajax({
-        url: '/check',
-        type: 'POST',
-        data : $('#form-notify2').serialize(),
-        success: function (data) {
-        if (data == "False") {
-            $(".form-error-message").addClass("error");
-        } else {
-             $(".form-error-message").removeClass("error");
-        }
-    }
-    });
-
-}, true);
-
 
 jQuery(function($) {
 
@@ -248,5 +230,5 @@ function submitted(){
 //    }
     document.querySelector("#notify-wrapper").style.display = "none";  
     document.querySelector("#completed").style.display = "block";
-
+    setInterval(function(){ window.location.reload(true); }, 2500);
 }

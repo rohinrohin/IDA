@@ -38,8 +38,10 @@
 		<link href="css/style-index.css" rel="stylesheet">
 
 		<script src="js/modernizr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 		<script src="js/custom-nav-predict.js"></script>
+
 
 	</head>
 
@@ -55,7 +57,7 @@
 			<a href="/portal">Doctor's Portal<span>Enter Patient Data</span></a>
 			<a href="#">Awareness<span>Learn more about Diseases</span></a>
 			<a href="/gallery">Gallery</a>
-			<a href="../temp.html">The Team<span>The people who make it possible</span></a>
+			<a href="/about">The Team<span>The people who make it possible</span></a>
 			<!--<a href="#">Contact<span>Send us a message!</span></a>-->
 	</div>
 
@@ -385,7 +387,6 @@
 	<!-- End Information Layer -->
 
 <!-- Include JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/nanoscroller.min.js"></script>
@@ -399,6 +400,32 @@
 <script src="assets/js/placeholders.js"></script>
 <script src="assets/js/init-for-ie.js"></script>
 <![endif]-->
+
+
+        <script>
+
+
+        var datepicker = document.querySelector("#date").addEventListener('input', function (e) {
+            var dt = document.querySelector("#date").value;
+            alert(dt);
+                $.ajax({
+                url: '/check',
+                type: 'POST',
+                data : $('#form-notify2').serialize(),
+                success: function (data) {
+                if (data == "False") {
+                    $(".form-error-message").addClass("error");
+                } else {
+                     $(".form-error-message").removeClass("error");
+                }
+            }
+            });
+
+        }, true);
+
+
+        </script>
+
 
 
 </body>
