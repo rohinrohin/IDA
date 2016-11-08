@@ -8,39 +8,12 @@
 
     <script>
 
-			function func(e){
-
-
-
-                var i = e.id;
-                var res =  i.split("#");
-
-
-                $.post("/checkin", {email: res[2]});
-
-
-
-                document.getElementById("p1").innerHTML = "Name: " + res[1];
-                document.getElementById("p2").innerHTML = "Email: " + res[2];
-                document.getElementById("p3").innerHTML = "Date: " + res[0];
-                document.getElementById("name").value = res[1];
-                document.getElementById("email").value = res[2];
-                document.getElementById("date").value = res[0];
-				document.getElementById(e.id).value = "Loading...";
-
-
-
-				setTimeout(function(){
-				document.getElementById(e.id).value = "      \u2713      ";
-				},1000);
-
-			};
 
 
 		</script>
 
 
-    <link href="css/style-portal.css" rel="stylesheet">
+    <link href="css/style-awareness.css" rel="stylesheet">
     <link href="css/magnific-popup.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
@@ -64,8 +37,8 @@
         </div>
         <a href="/">Home<span>Go back to home</span></a>
         <a href="/predict">Predict<span>Predict your chances</span></a>
-        <a href="#">Doctor's Portal<span>Enter Patient Data</span></a>
-        <a href="/awareness">Awareness<span>Learn more about Diseases</span></a>
+        <a href="/portal">Doctor's Portal<span>Enter Patient Data</span></a>
+        <a href="#">Awareness<span>Learn more about Diseases</span></a>
         <a href="/gallery">Gallery</a>
         <a href="/about">The Team<span>The people who make it possible</span></a>
         <!--<a href="#">Contact<span>Send us a message!</span></a>-->
@@ -90,51 +63,25 @@
             </div>
         </div>
         <div id="title-flex" class="title-flex">
-            <h1 style = "align-items: flex-start; margin-left: 20px; margin-top: 20px;">Doctor's Portal</h1>
-            <div id = "table-div" style="transform:translateX(-200px);">
-            <table class="table-fill" width="100%">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th colspan="2">Checked in</th>
+            <h1 style = "align-items: flex-start; margin-left: 20px; margin-top: 20px;">How to reduce the risk?</h1>
+            <div id = "content-flex">
+                <h3 style="margin-top:20px">Heart disease continues to be the number one killer; cancer, the number 2 killer, not far behind. The tragic aspect of these deadly diseases is that they could all be cured, if we had sufficient funding.<br>The causes of heart disease can be viewed below:</h3><br>
+                <iframe  id = "frame" style="align-self: center" width="560" height="600" src="https://www.youtube.com/embed/qczRzcqxoIo" frameborder="0" allowfullscreen></iframe><br>
+                <h3 style="margin-top:20px">
 
-                </tr>
-              </thead>
-              <tbody class="table-hover">
+                    You can do a lot to lower your odds of getting heart disease. Taking action will improve your health -- and, possibly, save your life. Get going on these 5 ways to get on track:<br><br>
 
-                {% for w, x, y, z in cur %}
-                    <tr >
+                    <ol style="margin-left:60px;margin-right:60px;">
+                        <li>Quit smoking. If you smoke, you are more than twice as likely to have a heart attack as nonsmokers, and you’re much more likely to die if you do have a heart attack.</li><br>
+                        <li>Control high blood pressure. More than 50 million people in India have hypertension, or high blood pressure, making it the most common heart disease risk factor. Exercise and healthy eating help. Some people may need medicine to control their blood pressure, too.</li><br>
+                        <li>Get active. People who don't exercise are more likely to get heart disease, and die from it, than people who are active. Check with your doctor before starting a new exercise program, especially if you aren't active now. She can tell you what you can do.</li><br>
+                        <li> Follow a heart-healthy diet. Eat foods that are low in fat and cholesterol. Just about everyone should eat more fruits, vegetables, whole grains, beans, nuts, legumes, and other plant-based foods. The fiber is good for your cholesterol, and you'll get vitamins the natural way, from foods.</li><br>
+                        <li> Manage stress and anger. Everyone has stress, and it's normal to get angry now and then. When stress and anger flare up, especially if it happens a lot, that's a problem. Managing your stress and handling your anger in healthy ways puts you back in charge.</li><br>
+                    </ol>
 
-                        <td class="text-left">{{ w }} </td>
-                        <td class="text-left">{{ x }}</td>
-                        <td class="text-left">{{ y }}</td>
-                        <td class="text-left">{{ z }}</td>
-                        {% if z == 0 %}
-                            <td class="text-left blue">
-
-                                <a href="#notify" class = "notify-popup"> <input type = "button" class="progress-button" data-style="fill" data-horizontal value = " Check in "  id = "{{ w }}#{{ x }}#{{ y }}" onClick = "func(this)" >
-
-                                </input></a>
-
-                            </td>
-                        {% else %}
-                            <td class="text-left blue">
-
-
-                            </td>
-
-                        {% endif %}
-                    </tr>
-
-
-
-            {% endfor %}
-                </tbody>
-            </table>
+                </h3>
+             </div>
         </div>
-    </div>
 </div>
 
 

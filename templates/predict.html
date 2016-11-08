@@ -55,7 +55,7 @@
 			<a href="/">Home<span>Go back to home</span></a>
 			<a href="#">Predict<span>Predict your chances</span></a>
 			<a href="/portal">Doctor's Portal<span>Enter Patient Data</span></a>
-			<a href="#">Awareness<span>Learn more about Diseases</span></a>
+			<a href="/awareness">Awareness<span>Learn more about Diseases</span></a>
 			<a href="/gallery">Gallery</a>
 			<a href="/about">The Team<span>The people who make it possible</span></a>
 			<!--<a href="#">Contact<span>Send us a message!</span></a>-->
@@ -407,7 +407,7 @@
 
         var datepicker = document.querySelector("#date").addEventListener('input', function (e) {
             var dt = document.querySelector("#date").value;
-            alert(dt);
+
                 $.ajax({
                 url: '/check',
                 type: 'POST',

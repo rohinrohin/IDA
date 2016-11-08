@@ -2,6 +2,7 @@
 <html lang="en" itemscope>
 
 <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,6 +36,7 @@
     <link rel="stylesheet" href="css/style-about.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script src="js/init.js"></script>
 
     <title>IDA - Intelligent Disease Awareness</title>
 
@@ -48,7 +50,7 @@
         <a href="/">Home<span>Go back to home</span></a>
         <a href="/predict">Predict<span>Predict your chances</span></a>
         <a href="/portal">Doctor's Portal<span>Enter Patient Data</span></a>
-        <a href="#">Awareness<span>Learn more about Diseases</span></a>
+        <a href="/awareness">Awareness<span>Learn more about Diseases</span></a>
         <a href="/gallery">Gallery</a>
         <a href="#">The Team<span>The people who make it possible</span></a>
         <!--<a href="#">Contact<span>Send us a message!</span></a>-->
@@ -85,11 +87,11 @@
           </div>
           <div class="about-item">
               <div class="circular2 animate" id="circular2"></div>
-              <p class="p1" id="p2">Dr. Rohit Raghavan M.B.B.S, M.D<span class="para">He is one of the most prominent doctors in India and is the brains of the entire operation</span></p>
+              <p class="p1" id="p2">Dr. Rohit Raghavan M.B.B.S, M.D<span class="para">His knowledge of local resources and personnel helped the project tremendously</span></p>
           </div>
           <div class="about-item">
               <div class="circular3 animate" id="circular3"></div>
-              <p class="p1" id="p3">Dr. Sanjay Krishnan M.B.B.S, M.D<span class="para">He is one of the most prominent doctors in India and is the brains of the entire operation</span></p>
+              <p class="p1" id="p3">Dr. Sanjay Krishnan M.B.B.S, M.D<span class="para">He has worked under top doctors all around the world and has invaluable technical knowledge</span></p>
           </div>
       </div>
 
@@ -98,7 +100,12 @@
       </div>
 
       </div>
-  </div>
+</div>
+ <!-- Start Preloader -->
+	<div id="page-preloader">
+		<span class="spinner"><img src="assets/images/preloader.svg" width="50" alt="load..."></span>
+	</div>
+	<!-- End Preloader -->
 
 
 </body>

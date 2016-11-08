@@ -13,7 +13,7 @@ jQuery(function($) {
 
   initPopup();
   initMail();
-  initScroll();
+
   // initOverlay();
   // initGallery();
 

@@ -61,6 +61,10 @@ def portal():
 def gallery():
     return render_template('gallery.html')
 
+@app.route("/awareness")
+def awareness():
+    return render_template('awareness.html')
+
 
 ##### STATIC VIEWS END #######
 
