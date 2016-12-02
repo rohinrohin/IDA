@@ -1,4 +1,4 @@
-# Intelligent Disease Awareness
+# Intelligent Disease Awareness (IDA)
 Intelligently spread awareness and predict the possibility of having a heart disease.
 > This project was made for WT101 (webtech) course as a mini-project. 
  
