@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, url_for, json, send_from_directory
 import mysql.connector
 import smtplib
+import psycopg2
 from math import *
+import sendgrid
+import os
+from sendgrid.helpers.mail import *
 
 app = Flask(__name__)
 
@@ -15,11 +19,11 @@ app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
 ## CHECK DATABASE CONNECTION ##
 
 
-conn = mysql.connector.connect(
-    user='root',
-    password='',
+conn = psycopg2.connect(
+    user='admin',
+    password='admin',
     host='127.0.0.1',
-    port=3306,
+    port=5432,
     database='wt')
 
 cur = conn.cursor()
@@ -42,20 +46,21 @@ def predictloader():
 
 @app.route("/portal")
 def portal():
-    conn = mysql.connector.connect(
-        user='root',
-        password='',
+    conn = psycopg2.connect(
+        user='admin',
+        password='admin',
         host='127.0.0.1',
-        port=3306,
+        port=5432,
         database='wt')
 
     cur = conn.cursor()
 
-    query = ("SELECT * FROM `webtech` order by `ischeckedin` asc")
+    query = ("SELECT * FROM webtech order by ischeckedin asc")
     cur.execute(query)
+    
+    ren = render_template('portal.html', cur=cur)
     conn.close()
-
-    return render_template('portal.html', cur=cur)
+    return ren
 
 @app.route("/gallery")
 def gallery():
@@ -73,6 +78,18 @@ def awareness():
 
 user ="idawebtech@gmail.com"
 pwd = "sanjay12"
+
+def send_email_sg(recipient, name, risk):
+    sg = sendgrid.SendGridAPIClient(apikey='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')
+    from_email = Email("idawebtech@gmail.com")
+    to_email = Email("rohinrohin@gmail.com ")
+    subject = "Thank you for trying IDA!"
+    content = Content("text/html", "<h4 style=\"color:#4A235A;font-family: verdana;\">Hi " + name + ",\n\n" + "</h4><h4 style=\"font-family: verdana;\">Thanks for your interest in our prediction engine,<br> \n\n We have received your details and here is our analysis. <br>Risk Level = " + str(ceil(risk)) + "%<br> You can further visit http://127.0.0.1:5000/awareness for more information on reducing your risk percentage.</h4><h4 style=\"color:#4A235A;font-family: verdana;\">Regrads, <br>IDA, Webtech Team</h4>")
+    mail = Mail(from_email, subject, to_email, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    print(response.status_code)
+    print(response.body)
+    print(response.headers)
 
 
 def send_email(recipient,name,risk):
@@ -104,18 +121,18 @@ def send_email(recipient,name,risk):
 def check():
     
     data = request.form.get('date')  # but data will be empty unless the request has the proper content-type header...
-    conn = mysql.connector.connect(
-        user='root',
-        password='',
+    conn = psycopg2.connect(
+        user='admin',
+        password='admin',
         host='127.0.0.1',
-        port=3306,
+        port=5432,
         database='wt')
 
     print("got request:", data)
     cur = conn.cursor()
     # date in yyyy-mm-dd
     # query = ()
-    cur.execute("SELECT COUNT(*) FROM `webtech` WHERE date = %s", (data, ))
+    cur.execute("SELECT COUNT(*) FROM webtech WHERE date = %s", (data, ))
 
     val = False
 
@@ -138,11 +155,11 @@ def appointment():
     email = request.form.get('email')
     date = request.form.get('date')
 
-    conn = mysql.connector.connect(
-        user='root',
-        password='',
+    conn = psycopg2.connect(
+        user='admin',
+        password='admin',
         host='127.0.0.1',
-        port=3306,
+        port=5432,
         database='wt')
 
     cur = conn.cursor()
@@ -170,11 +187,11 @@ def checkin():
 
     email = request.form.get('email')
 
-    conn = mysql.connector.connect(
-        user='root',
-        password='',
+    conn = psycopg2.connect(
+        user='admin',
+        password='admin',
         host='127.0.0.1',
-        port=3306,
+        port=5432,
         database='wt')
 
     cur = conn.cursor()
@@ -221,7 +238,7 @@ def predict():
                        2) / 25)
     print(ans)
 
-    send_email(email, name, ans)
+    send_email_sg(email, name, ans)
 
     return "true"
 
